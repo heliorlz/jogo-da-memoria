@@ -1,0 +1,38 @@
+.memory-card {
+    width: 155px;
+    height: 155px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #f25a70;
+    margin-bottom: 20px;
+}
+
+.-tails {
+    width: 155px;
+    height: 155px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.-tails > .icon {
+    width: 100px;
+    height: 100px;
+}
+
+.memory-card > .icon {
+    width: 100px;
+    height: 100px;
+}
+
+.-tails > .icon.-js {
+    background-color: #d4d4d4;
+    border-radius: 50px;
+}
