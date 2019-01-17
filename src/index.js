@@ -1,14 +1,16 @@
 const $root = document.querySelector('#root');
-const $memoryCard = document.createElement('article');
+const $wrapCards = document.createElement('section');
+
 const $memoryCardFront = document.createElement('article');
 
+const numberCards = 9; /* numero de cards - o card front */
 const $iconCollab = 
     `<img 
         src="img/icon-collabcode.png" 
         alt="Gueio, mascote da CollabCode" 
         class="icon"
-    />`; // transformamos a tag img em string 
-    //plus: para podermos quebrar e organizar melhor, usamos templatestring(as aspas)
+    />`;
+    
 
 const $iconJS = 
     `<img 
@@ -17,15 +19,20 @@ const $iconJS =
         class="icon"
     />`
 
-$memoryCard.classList.add('memory-card');
-$root.insertBefore($memoryCard, null); // como não temos nenhuma tag antes do article, devemos colocar null
-// $memoryCard.innerHTML = $icon; 
-$memoryCard.insertAdjacentHTML("afterbegin", $iconCollab); // pegando o caminho do icon e adicionando como html ao memorycard
-// insertAdjacentHTML inseri HTML dinamicamente em nosso documento, pegando como parametros a posição e a string a ser inserida
+$wrapCards.classList.add('wrap-cards');
+$root.insertBefore($wrapCards, null);
+
+
+for (i = 0; i < numberCards; i++) {
+    const $memoryCard = document.createElement('article');
+    $memoryCard.classList.add('memory-card');
+    $wrapCards.insertBefore($memoryCard, null); /* tem que ser $wrapCards ao inrateves de root para ele embrulhar os elementos */
+    $memoryCard.insertAdjacentHTML("afterbegin", $iconCollab);    
+}  
 
 $memoryCardFront.classList.add('memory-card');
 $memoryCardFront.classList.add('-front');
-$root.insertBefore($memoryCardFront, null);
+$wrapCards.insertBefore($memoryCardFront, null);
 $memoryCardFront.insertAdjacentHTML("afterbegin", $iconJS);
 
 

@@ -1,6 +1,6 @@
 .memory-card {
-    width: 155px;
-    height: 155px;
+    width: 130px;
+    height: 130px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -8,7 +8,8 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #f25a70;
     position: relative;
-    margin-bottom: 20px;
+    margin: 10px;
+    
 }
 
 .memory-card.-front {
@@ -32,7 +33,7 @@
     /* z-index: 1; */
 }
 
-.memory-card.-front > .icon { /* posicionando o livro de acordo com olayout */
+.memory-card.-front > .icon { /* posicionando o livro de acordo com o layout */
     position: absolute;
     transform: translateY(-12px);
 }

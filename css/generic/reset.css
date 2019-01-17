@@ -4,5 +4,6 @@ padding: 0;
 }
 
 body {
-    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
