@@ -31,3 +31,5 @@ function createMemoryCardFront() {
     $wrapCards.insertBefore($memoryCardFront, null);
     $memoryCardFront.insertAdjacentHTML("afterbegin", $iconJS);
 };
+
+
