@@ -1,13 +1,12 @@
-const numberCards = 9; /* numero de cards - o card front */
+// const numberCards = 9; /* numero de cards - o card front */
 
-function createMemoryCard() {
+const createMemoryCard = () =>  {
     const $memoryCard = `
-        <article class="memory-card">
+        <article class="memory-card" onclick="handleClick()">
             <img 
                 src="img/icon-collabcode.png" 
                 alt="Gueio, mascote da CollabCode" 
                 class="icon"
-                onClick="handleClick()"
             />
         </article>
     `;
@@ -15,24 +14,22 @@ function createMemoryCard() {
     return $memoryCard;
 }
 
-function createMemoryCardFront() {    
-    const $memoryCard = `
-        <article class="memory-card -front">
-            <img 
-                src="img/icon-js.png" 
-                alt="Icone do livro de Javascript" 
-                class="icon"
-                onClick="handleClick()"
-            />   
-        </article>
-    `;
+const handleClick = () => {
+    const $memoryCards = document.querySelectorAll('.memory-card');
 
-    return $memoryCard;
-};
-
-function handleClick() {
-    console.log('clicou');
+    $memoryCards.forEach(function($memoryCard){
+        $memoryCard.onclick = () => {
+            $memoryCard.classList.toggle('-front');
+        };
+    })
 }
+
+// const $memoryCards = document.querySelectorAll('.memory-card');
+// $memoryCards.forEach(function($memoryCard) {
+//     $memoryCard.addEventListener('click', function(){
+//         console.log('memorycard cliked');
+//     });    
+// });
 
 // const $iconCollab = 
 //         `<img 
