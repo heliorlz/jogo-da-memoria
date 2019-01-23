@@ -1,28 +1,36 @@
 // const numberCards = 9; /* numero de cards - o card front */
 
-const createMemoryCard = () =>  {
-    const $memoryCard = `
-        <article class="memory-card" onclick="handleClick()">
-            <img 
-                src="img/icon-collabcode.png" 
-                alt="Gueio, mascote da CollabCode" 
-                class="icon"
-            />
-        </article>
+const createMemoryCard = nameClass => {
+    let src = "img/icon-collabcode.png";
+
+    if (nameClass === '-front') {
+        src = "img/icon-js.png";
+    }
+
+    // nameClass: a funcao createMemoryCardFront recebe por parametro nameClass ('-front')
+    // src: a variavel altera a imagem que o source ira receber
+    return ` 
+    <article class="memory-card ${nameClass}">
+        <img 
+            src="${src}" 
+            alt="Gueio, mascote da CollabCode" 
+            class="icon"
+            onclick="handleClick()"
+        />
+    </article>
     `;
-    
-    return $memoryCard;
-}
+}; // retorna direramente utilizando arrow function, template string (a crase) deixa o comportamento do conteudo como se fosse na mesma linha
 
-const handleClick = () => {
-    const $memoryCards = document.querySelectorAll('.memory-card');
 
-    $memoryCards.forEach(function($memoryCard){
-        $memoryCard.onclick = () => {
-            $memoryCard.classList.toggle('-front');
-        };
-    })
-}
+// const handleClick = () => {
+//     const $memoryCards = document.querySelectorAll('.memory-card');
+
+//     $memoryCards.forEach(function($memoryCard){
+//         $memoryCard.onclick = () => {
+//             $memoryCard.classList.toggle('-front');
+//         };
+//     })
+// }
 
 // const $memoryCards = document.querySelectorAll('.memory-card');
 // $memoryCards.forEach(function($memoryCard) {
