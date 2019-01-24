@@ -1,31 +1,55 @@
 const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();
+
+const cards = {
+    gueioCard : [
+        "img/icon-collabcode.png",
+        "Gueio, mascote da CollabCode carta",
+        // ""
+    ],
+
+    jsCard : [
+        "img/icon-js.png",
+        "Icone de um livro de Javascript",
+        "-front"
+    ],
+
+    bugCard : [
+        "img/icon-bug.png",
+        "Icone de um inseto representando um bug no sistema",
+        "-front"
+    ],
+
+    responsiveCard : [
+        "img/icon-responsivo.png",
+        "Icone de um monitor e um celular, representando responsividade",
+        "-front"
+    ]
+}
+
 const $memoryCard = createMemoryCard(
-  "img/icon-collabcode.png",
-  "Gueio, mascote da CollabCode carta"
+  ...cards.gueioCard
 ); // isolamos a funcao de criar um cartao no src/components/memory-card.js
-const $memoryCardFront = createMemoryCard(
-  "img/icon-js.png",
-  "Icone de um livro de Javascript",
-  "-front"
+const $memoryCardJS = createMemoryCard(
+  ...cards.jsCard
 ); // passamos como parametro o caminho das imagens
 // passamos como parametro, a descrição do alt
-const $memoryCardGueio = createMemoryCard(
-  "img/icon-collabcode.png",
-  "Gueio, mascote da CollabCode",
-  "-front"
+const $memoryCardBug = createMemoryCard(
+  ...cards.bugCard
 );
+const $memoryCardResponsive = createMemoryCard(
+    ...cards.responsiveCard
+  );
+
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardGueio);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardGueio);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardResponsive);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardResponsive);
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper);

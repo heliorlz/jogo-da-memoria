@@ -2,6 +2,7 @@
 
 // recebemos como parametro, o caminho das imagens atraves do src
 // recebemos como parametro, a descrição do alt
+ 
 const createMemoryCard = (src, alt, nameClass) => ` 
     <article class="memory-card ${nameClass}">
         <img 
@@ -12,6 +13,8 @@ const createMemoryCard = (src, alt, nameClass) => `
         />
     </article>
     `;
+
+const handleClick = () => console.log('foi');
 
 // for (i = 0; i < numberCards; i++) {
 //     const $memoryCard = document.createElement('article');
