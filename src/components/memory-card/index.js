@@ -1,16 +1,22 @@
 // const numberCards = 9; /* numero de cards - o card front */
 
 // JSON Javascript Object Notation
-const createMemoryCard = card => ` 
-    <article class="memory-card ${card.nameClass}">
+// utilizando object destructuring na function
+const createMemoryCard = card => {
+
+const { nameClass, src, alt } = card;
+
+return ` 
+    <article class="memory-card ${nameClass}">
         <img 
-            src="${card.src}" 
-            alt="${card.alt}" 
+            src="${src}" 
+            alt="${alt}" 
             class="icon"
             onclick="handleClick()"
         />
     </article>
     `;
+};
 
 const handleClick = () => console.log('foi');
 
