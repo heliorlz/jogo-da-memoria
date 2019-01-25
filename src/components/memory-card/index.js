@@ -1,7 +1,7 @@
 // const numberCards = 9; /* numero de cards - o card front */
 
 // JSON Javascript Object Notation
-const createMemoryCard = (card) => ` 
+const createMemoryCard = card => ` 
     <article class="memory-card ${card.nameClass}">
         <img 
             src="${card.src}" 
