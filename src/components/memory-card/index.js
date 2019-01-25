@@ -1,13 +1,11 @@
 // const numberCards = 9; /* numero de cards - o card front */
 
-// recebemos como parametro, o caminho das imagens atraves do src
-// recebemos como parametro, a descrição do alt
- 
-const createMemoryCard = (src, alt, nameClass) => ` 
-    <article class="memory-card ${nameClass}">
+// JSON Javascript Object Notation
+const createMemoryCard = (card) => ` 
+    <article class="memory-card ${card.nameClass}">
         <img 
-            src="${src}" 
-            alt="${alt}" 
+            src="${card.src}" 
+            alt="${card.alt}" 
             class="icon"
             onclick="handleClick()"
         />
