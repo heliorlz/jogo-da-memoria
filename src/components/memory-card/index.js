@@ -7,9 +7,15 @@ const memoryCard = () => {
   const $style = document.createElement("style");
 
   $style.textContent = `
-    .memory-card {
+      .memory-card {
         width: 130px;
         height: 130px;
+        position: relative;
+      }
+  
+      .memory-card .card {
+        width: 100%;
+        height: 100%;
         border-radius: 30px;
         display: flex;
         justify-content: center;
@@ -19,9 +25,18 @@ const memoryCard = () => {
         position: relative;
         margin-bottom: 15px;
         cursor: pointer;
+        position: absolute;
+      }
+
+      .memory-card.-active .card {
+        display: none;
+      }
+
+      .memory-card.-active .card.-front {
+        display: flex;
       }
       
-      .memory-card.-front::before {
+     .memory-card .card.-front::before {
         content: "";
         width: 95px;
         height: 95px;
@@ -30,33 +45,16 @@ const memoryCard = () => {
         position: absolute;
       }
       
-      .memory-card > .icon {
+     .memory-card .card > .icon {
         width: 100px;
         height: 100px;
       }
 
-      /* faz a troca, quando nao estiver com o modificador front, da primeira imagem com a segunda */
-      .memory-card>.icon:first-of-type {
-        display:none;
-      }
-
-      .memory-card>.icon:last-of-type {
-        display:block;
-      }
-
-      .memory-card.-front {
+     .memory-card .card.-front {
         background-color: #fff;
       }
-
-      /* faz a troca, quando estiver com o modificador front, da segunda imagem com a primeira */
-      .memory-card.-front>.icon:first-of-type {
-        display:block;
-      }
-      .memory-card.-front>.icon:last-of-type {
-        display:none;
-      }
         
-      .memory-card.-front > .icon {
+     .memory-card .card.-front > .icon {
         position: absolute;
         transform: translateY(-12px);
       }
@@ -65,28 +63,25 @@ const memoryCard = () => {
     `;
   $head.insertBefore($style, null);
 
-  return ({ nameClass, src, alt }) => ` 
-    <article class="memory-card ${nameClass}" onclick="handleClick()">
-      <img 
-          src="${src}" 
-          alt="${alt}" 
+  return ({ src, alt }) => ` 
+    <div class="memory-card" onclick="handleClick(this)">
+      <article class="card -front">
+        <img 
+            src="${src}" 
+            alt="${alt}" 
+            class="icon"
+        />
+      </article>
+      <article class="card">
+        <img 
+          src="img/icon-collabcode.png" 
+          alt="Mascote collabcode" 
           class="icon"
-      />
-      <!-- adicionar as duas imagens e fazer a troca utilizando o click + displays no css -->
-      <img 
-        src="img/icon-collabcode.png" 
-        alt="Mascote collabcode" 
-        class="icon"
-      />    
-    </article>
+        />    
+      </'article>
+    </div>
     `;
 };
-const handleClick = () => {
-  const $memoryCards = document.querySelectorAll(".memory-card");
-
-  $memoryCards.forEach(function($memoryCard) {
-    $memoryCard.onclick = () => {
-      $memoryCard.classList.toggle("-front");
-    };
-  });
+const handleClick = $component => { // pegar exatamente o componente que foi clicado (passando como parametro (this) na funcao handleClick)
+  $component.classList.toggle('-active');
 };

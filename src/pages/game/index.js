@@ -5,25 +5,21 @@ const $cardsWrapper = createCardsWrapper();
 const createMemoryCard = memoryCard();
 
 const $memoryCardHead = createMemoryCard({
-  nameClass: "",
   src: "img/icon-js.png",
   alt: "Icone de uma tag de abertura e fechamento em uma cabeça"
 });
 
 const $memoryCardJS = createMemoryCard({
-  nameClass: "",
   src: "img/icon-cabeca.png",
   alt: "Icone de um livro de Javascript"
 });
 
 const $memoryCardBug = createMemoryCard({
-  nameClass: "",
   src: "img/icon-bug.png",
   alt: "Icone de um inseto representando um bug no sistema"
 });
 
 const $memoryCardResponsive = createMemoryCard({
-  nameClass: "",
   src: "img/icon-responsivo.png",
   alt: "Icone de um monitor e um celular, representando responsividade"
 });
