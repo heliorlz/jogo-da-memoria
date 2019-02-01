@@ -82,6 +82,41 @@ const memoryCard = () => {
     </div>
     `;
 };
-const handleClick = $component => { // pegar exatamente o componente que foi clicado (passando como parametro (this) na funcao handleClick)
-  $component.classList.toggle('-active');
+
+let hasFlippedCard = false; 
+let lockBoard = false; 
+let firstCard, secondCard; 
+
+const handleClick = $component => { 
+  
+  if ( lockBoard ) return;
+  $component.classList.add('-active');
+
+  if ( !hasFlippedCard ) {
+    hasFlippedCard = true;
+    firstCard = $component;
+    return;
+  }
+
+  secondCard = $component;
+  hasFlippedCard = false;
+
+  unflipCards();
 };
+
+
+function unflipCards() {
+  lockBoard = true;
+
+  if ( firstCard && secondCard ) {
+    setTimeout(() => {
+      firstCard.classList.remove('-active');
+      secondCard.classList.remove('-active');
+      lockBoard = false;
+    }, 2000);
+  }
+}
+
+
+
+
