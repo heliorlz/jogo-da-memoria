@@ -21,17 +21,8 @@ function createCardsWrapper() {
   `
   $head.insertBefore($style, null); 
 
-  $cardsWrapper.addEventListener('click', event => {
-    const $origin = event.target;
-    
-    if( $origin.closest('.memory-card.-active') ) {
-      qttActiveMemoryCard = qttActiveMemoryCard + 1;
-    } else if ( $origin.closest('.memory-card') ) {
-      qttActiveMemoryCard = qttActiveMemoryCard - 1;
-    }
-
-    console.log('qtd', qttActiveMemoryCard);
-
+  $cardsWrapper.addEventListener('click', () => {
+    qttActiveMemoryCard = $cardsWrapper.querySelectorAll('.-memory-card.-active').length;
   })  
 
   return $cardsWrapper;
