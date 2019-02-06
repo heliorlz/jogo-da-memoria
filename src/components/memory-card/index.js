@@ -87,7 +87,23 @@ let hasFlippedCard = false;
 let lockBoard = false; 
 let firstCard, secondCard; 
 
-const handleClick = $component => $component.classList.toggle('-active'); 
+const handleClick = $component => {
+  if ( qttActiveMemoryCard < 2 ) {
+    $component.classList.toggle('-active');
+  }
+
+  if ( qttActiveMemoryCard == 1 ) {
+    setTimeout(() => {
+      const $activeMemoryCards = document.querySelectorAll('.memory-card.-active');
+
+      $activeMemoryCards.forEach($memoryCard => {
+        $memoryCard.classList.remove('-active');
+        qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
+      })
+    }, 1500);
+  }
+  
+} 
   
 //   if ( lockBoard ) return;
 //   $component.classList.add('-active');

@@ -1,5 +1,7 @@
+let qttActiveMemoryCard = 0; // deixando fora da funcao para ser uma variavel global 
+
 function createCardsWrapper() {
-  let qttActiveMemoryCard = 0;
+  
   const $cardsWrapper = document.createElement("section");
   $cardsWrapper.classList.add("cards-wrapper");
 
@@ -22,7 +24,7 @@ function createCardsWrapper() {
   $head.insertBefore($style, null); 
 
   $cardsWrapper.addEventListener('click', () => {
-    qttActiveMemoryCard = $cardsWrapper.querySelectorAll('.-memory-card.-active').length;
+    qttActiveMemoryCard = $cardsWrapper.querySelectorAll('.memory-card.-active').length;
   })  
 
   return $cardsWrapper;
