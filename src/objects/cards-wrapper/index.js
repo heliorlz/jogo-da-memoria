@@ -1,4 +1,5 @@
 function createCardsWrapper() {
+  let qttActiveMemoryCard = 0;
   const $cardsWrapper = document.createElement("section");
   $cardsWrapper.classList.add("cards-wrapper");
 
@@ -18,7 +19,20 @@ function createCardsWrapper() {
     margin-bottom: 10px;
   }
   `
-  $head.insertBefore($style, null); // adicionando a tag style e seu conteudo dentro da tag head
+  $head.insertBefore($style, null); 
+
+  $cardsWrapper.addEventListener('click', event => {
+    const $origin = event.target;
+    
+    if( $origin.closest('.memory-card.-active') ) {
+      qttActiveMemoryCard = qttActiveMemoryCard + 1;
+    } else if ( $origin.closest('.memory-card') ) {
+      qttActiveMemoryCard = qttActiveMemoryCard - 1;
+    }
+
+    console.log('qtd', qttActiveMemoryCard);
+
+  })  
 
   return $cardsWrapper;
 }

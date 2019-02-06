@@ -87,35 +87,35 @@ let hasFlippedCard = false;
 let lockBoard = false; 
 let firstCard, secondCard; 
 
-const handleClick = $component => { 
+const handleClick = $component => $component.classList.toggle('-active'); 
   
-  if ( lockBoard ) return;
-  $component.classList.add('-active');
+//   if ( lockBoard ) return;
+//   $component.classList.add('-active');
 
-  if ( !hasFlippedCard ) {
-    hasFlippedCard = true;
-    firstCard = $component;
-    return;
-  }
+//   if ( !hasFlippedCard ) {
+//     hasFlippedCard = true;
+//     firstCard = $component;
+//     return;
+//   }
 
-  secondCard = $component;
-  hasFlippedCard = false;
+//   secondCard = $component;
+//   hasFlippedCard = false;
 
-  unflipCards();
-};
+//   unflipCards();
+// };
 
 
-function unflipCards() {
-  lockBoard = true;
+// function unflipCards() {
+//   lockBoard = true;
 
-  if ( firstCard && secondCard ) {
-    setTimeout(() => {
-      firstCard.classList.remove('-active');
-      secondCard.classList.remove('-active');
-      lockBoard = false;
-    }, 2000);
-  }
-}
+//   if ( firstCard && secondCard ) {
+//     setTimeout(() => {
+//       firstCard.classList.remove('-active');
+//       secondCard.classList.remove('-active');
+//       lockBoard = false;
+//     }, 2000);
+//   }
+// }
 
 
 
