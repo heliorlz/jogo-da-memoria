@@ -28,11 +28,13 @@ const memoryCard = () => {
         position: absolute;
       }
 
-      .memory-card.-active .card {
+      .memory-card.-active .card,
+      .memory-card.-score .card {
         display: none;
       }
 
-      .memory-card.-active .card.-front {
+      .memory-card.-active .card.-front,
+      .memory-card.-score .card.-front {
         display: flex;
       }
       
@@ -63,13 +65,14 @@ const memoryCard = () => {
     `;
   $head.insertBefore($style, null);
 
-  return ({ src, alt }) => ` 
-    <div class="memory-card" onclick="handleClick(this)">
+  return ({ src, alt, dataIcone }) => ` 
+    <div class="memory-card" data-icone="${dataIcone}" onclick="handleClick(this)">
       <article class="card -front">
         <img 
             src="${src}" 
             alt="${alt}" 
             class="icon"
+            
         />
       </article>
       <article class="card">
@@ -83,28 +86,54 @@ const memoryCard = () => {
     `;
 };
 
-let hasFlippedCard = false; 
-let lockBoard = false; 
-let firstCard, secondCard; 
+// let hasFlippedCard = false;
+// let lockBoard = false;
+// let firstCard, secondCard;
+let score = 0;
 
 const handleClick = $component => {
-  if ( qttActiveMemoryCard < 2 ) {
-    $component.classList.toggle('-active');
+  if (qttActiveMemoryCard < 2) {
+    $component.classList.toggle("-active");
   }
 
-  if ( qttActiveMemoryCard == 1 ) {
+  if (qttActiveMemoryCard === 1) {
+    
+    const $activeMemoryCards = document.querySelectorAll(
+      ".memory-card.-active"
+    );
+
+    if (
+      $activeMemoryCards[0].dataset.icone ===
+      $activeMemoryCards[1].dataset.icone
+    ) {
+      $activeMemoryCards.forEach($memoryCard => {
+        $memoryCard.classList.remove("-active");
+        $memoryCard.classList.add("-score");
+        qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
+      });
+      console.log("acertou");
+      score = score + 10;
+      console.log(`${score} pontos`);
+    } else {
+      console.log('errou');
+      unflipCards();
+    }
+  }
+
+  function unflipCards() {
     setTimeout(() => {
-      const $activeMemoryCards = document.querySelectorAll('.memory-card.-active');
+      const $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active"
+      );
 
       $activeMemoryCards.forEach($memoryCard => {
-        $memoryCard.classList.remove('-active');
+        $memoryCard.classList.remove("-active");
         qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
-      })
+      });
     }, 1500);
   }
-  
-} 
-  
+};
+
 //   if ( lockBoard ) return;
 //   $component.classList.add('-active');
 
@@ -120,7 +149,6 @@ const handleClick = $component => {
 //   unflipCards();
 // };
 
-
 // function unflipCards() {
 //   lockBoard = true;
 
@@ -132,7 +160,3 @@ const handleClick = $component => {
 //     }, 2000);
 //   }
 // }
-
-
-
-
