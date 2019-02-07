@@ -92,31 +92,33 @@ const memoryCard = () => {
 let score = 0;
 
 const handleClick = $component => {
-  if (qttActiveMemoryCard < 2) {
-    $component.classList.toggle("-active");
-  }
+  // entra na condição do jogo se caso "não => !" conter a class -active no $component
+  if (!$component.classList.contais("-active")) {
+    if (qttActiveMemoryCard < 2) {
+      $component.classList.toggle("-active");
+    }
 
-  if (qttActiveMemoryCard === 1) {
-    
-    const $activeMemoryCards = document.querySelectorAll(
-      ".memory-card.-active"
-    );
+    if (qttActiveMemoryCard === 1) {
+      const $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active"
+      );
 
-    if (
-      $activeMemoryCards[0].dataset.icone ===
-      $activeMemoryCards[1].dataset.icone
-    ) {
-      $activeMemoryCards.forEach($memoryCard => {
-        $memoryCard.classList.remove("-active");
-        $memoryCard.classList.add("-score");
-        qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
-      });
-      console.log("acertou");
-      score = score + 10;
-      console.log(`${score} pontos`);
-    } else {
-      console.log('errou');
-      unflipCards();
+      if (
+        $activeMemoryCards[0].dataset.icone ===
+        $activeMemoryCards[1].dataset.icone
+      ) {
+        $activeMemoryCards.forEach($memoryCard => {
+          $memoryCard.classList.remove("-active");
+          $memoryCard.classList.add("-score");
+          qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
+        });
+        console.log("acertou");
+        score = score + 10;
+        console.log(`${score} pontos`);
+      } else {
+        console.log("errou");
+        unflipCards();
+      }
     }
   }
 
