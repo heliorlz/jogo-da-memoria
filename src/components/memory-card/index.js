@@ -93,7 +93,7 @@ let score = 0;
 
 const handleClick = $component => {
   // entra na condição do jogo se caso "não => !" conter a class -active no $component
-  if (!$component.classList.contais("-active")) {
+  if (!$component.classList.contains("-active")) {
     if (qttActiveMemoryCard < 2) {
       $component.classList.toggle("-active");
     }
@@ -102,16 +102,16 @@ const handleClick = $component => {
       const $memoryCards = document.querySelectorAll(".memory-card.-active");
 
       if (
-        $memoryCards[0].querySelector(".-front icon").getAttribute("src") ===
-        $memoryCards[1].querySelector(".-front icon").getAttribute("src")
+        $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ===
+        $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
       ) {
-        $activeMemoryCards.forEach($memoryCard => {
+        $memoryCards.forEach($memoryCard => {
           $memoryCard.classList.remove("-active");
           $memoryCard.classList.add("-score");
           qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
         });
         console.log("acertou");
-        score = score + 10;
+        score += 10;
         console.log(`${score} pontos`);
       } else {
         console.log("errou");
