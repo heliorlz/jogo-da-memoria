@@ -99,13 +99,11 @@ const handleClick = $component => {
     }
 
     if (qttActiveMemoryCard === 1) {
-      const $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active"
-      );
+      const $memoryCards = document.querySelectorAll(".memory-card.-active");
 
       if (
-        $activeMemoryCards[0].dataset.icone ===
-        $activeMemoryCards[1].dataset.icone
+        $memoryCards[0].querySelector(".-front icon").getAttribute("src") ===
+        $memoryCards[1].querySelector(".-front icon").getAttribute("src")
       ) {
         $activeMemoryCards.forEach($memoryCard => {
           $memoryCard.classList.remove("-active");
