@@ -19,13 +19,13 @@ const $memoryCardJS = createMemoryCard({
 const $memoryCardBug = createMemoryCard({
   src: "img/icon-bug.png",
   alt: "Icone de um inseto representando um bug no sistema",
-  dataIcone:"bug"
+  dataIcone: "bug"
 });
 
 const $memoryCardResponsive = createMemoryCard({
   src: "img/icon-responsivo.png",
   alt: "Icone de um monitor e um celular, representando responsividade",
-  dataIcone:"responsive"
+  dataIcone: "responsive"
 });
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardHead);

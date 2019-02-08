@@ -86,11 +86,6 @@ const memoryCard = () => {
     `;
 };
 
-// let hasFlippedCard = false;
-// let lockBoard = false;
-// let firstCard, secondCard;
-let score = 0;
-
 const handleClick = $component => {
   // entra na condição do jogo se caso "não => !" conter a class -active no $component
   if (!$component.classList.contains("-active")) {
@@ -99,17 +94,17 @@ const handleClick = $component => {
     }
 
     if (qttActiveMemoryCard === 1) {
-      const $memoryCards = document.querySelectorAll(".memory-card.-active");
+      var $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active"
+      );
 
       if (
-        $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ===
-        $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
+        $activeMemoryCards[0]
+          .querySelector(".-front .icon")
+          .getAttribute("src") ===
+        $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
       ) {
-        $memoryCards.forEach($memoryCard => {
-          $memoryCard.classList.remove("-active");
-          $memoryCard.classList.add("-score");
-          qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
-        });
+        matched();
         console.log("acertou");
         score += 10;
         console.log(`${score} pontos`);
@@ -120,15 +115,19 @@ const handleClick = $component => {
     }
   }
 
+  function matched() {
+    $activeMemoryCards.forEach($memoryCard => {
+      $memoryCard.classList.remove("-active");
+      $memoryCard.classList.add("-score");
+      qttActiveMemoryCard = 0; 
+    });
+  }
+
   function unflipCards() {
     setTimeout(() => {
-      const $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active"
-      );
-
       $activeMemoryCards.forEach($memoryCard => {
         $memoryCard.classList.remove("-active");
-        qttActiveMemoryCard = 0; // necessita zerar para que seja reativado o processo de contagem assim que desvirar
+        qttActiveMemoryCard = 0; 
       });
     }, 1500);
   }
