@@ -89,49 +89,56 @@ const memoryCard = () => {
 const handleClick = $component => {
   // entra na condição do jogo se caso "não => !" conter a class -active no $component
   if (!$component.classList.contains("-active")) {
-    if (qttActiveMemoryCard < 2) {
-      $component.classList.toggle("-active");
-    }
-
-    if (qttActiveMemoryCard === 1) {
-      var $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active"
-      );
-
-      if (
-        $activeMemoryCards[0]
-          .querySelector(".-front .icon")
-          .getAttribute("src") ===
-        $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
-      ) {
-        matched();
-        console.log("acertou");
-        score += 10;
-        console.log(`${score} pontos`);
-      } else {
-        console.log("errou");
-        unflipCards();
-      }
-    }
-  }
-
-  function matched() {
-    $activeMemoryCards.forEach($memoryCard => {
-      $memoryCard.classList.remove("-active");
-      $memoryCard.classList.add("-score");
-      qttActiveMemoryCard = 0; 
-    });
-  }
-
-  function unflipCards() {
-    setTimeout(() => {
-      $activeMemoryCards.forEach($memoryCard => {
-        $memoryCard.classList.remove("-active");
-        qttActiveMemoryCard = 0; 
-      });
-    }, 1500);
+    activeMemoryCard($component);
+    checkForMatch();
   }
 };
+
+function activeMemoryCard($component) {
+  if (qttActiveMemoryCard < 2) {
+    $component.classList.add("-active");
+  }
+}
+
+function checkForMatch() {
+  if (qttActiveMemoryCard === 1) {
+    const $activeMemoryCards = document.querySelectorAll(
+      ".memory-card.-active"
+    );
+
+    if (
+      $activeMemoryCards[0]
+        .querySelector(".-front .icon")
+        .getAttribute("src") ===
+      $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
+    ) {
+      matched($activeMemoryCards);
+      console.log("acertou");
+      score += 10;
+      console.log(`${score} pontos`);
+    } else {
+      console.log("errou");
+      unmatched($activeMemoryCards);
+    }
+  }
+}
+
+function matched($activeMemoryCards) {
+  $activeMemoryCards.forEach($memoryCard => {
+    $memoryCard.classList.remove("-active");
+    $memoryCard.classList.add("-score");
+    qttActiveMemoryCard = 0;
+  });
+}
+
+function unmatched($activeMemoryCards) {
+  setTimeout(() => {
+    $activeMemoryCards.forEach($memoryCard => {
+      $memoryCard.classList.remove("-active");
+      qttActiveMemoryCard = 0;
+    });
+  }, 1500);
+}
 
 //   if ( lockBoard ) return;
 //   $component.classList.add('-active');
