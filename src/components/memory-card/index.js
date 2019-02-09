@@ -1,7 +1,3 @@
-// const numberCards = 9; /* numero de cards - o card front */
-
-// JSON Javascript Object Notation
-// utilizando object destructuring na function, passando diretamente como parametro
 const memoryCard = () => {
   const $head = document.querySelector("head");
   const $style = document.createElement("style");
@@ -87,7 +83,6 @@ const memoryCard = () => {
 };
 
 const handleClick = $component => {
-  // entra na condição do jogo se caso "não => !" conter a class -active no $component
   if (!$component.classList.contains("-active")) {
     activeMemoryCard($component);
     checkForMatch();
@@ -139,30 +134,3 @@ function unmatched($activeMemoryCards) {
     });
   }, 1500);
 }
-
-//   if ( lockBoard ) return;
-//   $component.classList.add('-active');
-
-//   if ( !hasFlippedCard ) {
-//     hasFlippedCard = true;
-//     firstCard = $component;
-//     return;
-//   }
-
-//   secondCard = $component;
-//   hasFlippedCard = false;
-
-//   unflipCards();
-// };
-
-// function unflipCards() {
-//   lockBoard = true;
-
-//   if ( firstCard && secondCard ) {
-//     setTimeout(() => {
-//       firstCard.classList.remove('-active');
-//       secondCard.classList.remove('-active');
-//       lockBoard = false;
-//     }, 2000);
-//   }
-// }
