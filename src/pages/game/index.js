@@ -1,40 +1,43 @@
-const $root = document.querySelector("#root");
+// IIFE - Immediately Invoked Function Expressiom 
+(function (){
+  const $root = document.querySelector("#root");
 
-const $cardsWrapper = createCardsWrapper();
+  const $cardsWrapper = createCardsWrapper();
 
-const createMemoryCard = memoryCard();
+  const createMemoryCard = memoryCard();
 
-const $memoryCardHead = createMemoryCard({
-  src: "img/icon-js.png",
-  alt: "Icone de uma tag de abertura e fechamento em uma cabeça",
-  dataIcone: "head"
-});
+  const $memoryCardHead = createMemoryCard({
+    src: "img/icon-js.png",
+    alt: "Icone de uma tag de abertura e fechamento em uma cabeça",
+    dataIcone: "head"
+  });
 
-const $memoryCardJS = createMemoryCard({
-  src: "img/icon-cabeca.png",
-  alt: "Icone de um livro de Javascript",
-  dataIcone: "js"
-});
+  const $memoryCardJS = createMemoryCard({
+    src: "img/icon-cabeca.png",
+    alt: "Icone de um livro de Javascript",
+    dataIcone: "js"
+  });
 
-const $memoryCardBug = createMemoryCard({
-  src: "img/icon-bug.png",
-  alt: "Icone de um inseto representando um bug no sistema",
-  dataIcone: "bug"
-});
+  const $memoryCardBug = createMemoryCard({
+    src: "img/icon-bug.png",
+    alt: "Icone de um inseto representando um bug no sistema",
+    dataIcone: "bug"
+  });
 
-const $memoryCardResponsive = createMemoryCard({
-  src: "img/icon-responsivo.png",
-  alt: "Icone de um monitor e um celular, representando responsividade",
-  dataIcone: "responsive"
-});
+  const $memoryCardResponsive = createMemoryCard({
+    src: "img/icon-responsivo.png",
+    alt: "Icone de um monitor e um celular, representando responsividade",
+    dataIcone: "responsive"
+  });
 
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardHead);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardResponsive);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardHead);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardResponsive);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardHead);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardResponsive);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardHead);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardResponsive);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 
-$root.insertAdjacentElement("beforeend", $cardsWrapper);
+  $root.insertAdjacentElement("beforeend", $cardsWrapper);
+})();

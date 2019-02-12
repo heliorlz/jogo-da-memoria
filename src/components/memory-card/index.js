@@ -90,13 +90,13 @@ const handleClick = $component => {
 };
 
 function activeMemoryCard($component) {
-  if (qttActiveMemoryCard < 2) {
+  if (store.qttActiveMemoryCard < 2) {
     $component.classList.add("-active");
   }
 }
 
 function checkForMatch() {
-  if (qttActiveMemoryCard === 1) {
+  if (store.qttActiveMemoryCard === 1) {
     const $activeMemoryCards = document.querySelectorAll(
       ".memory-card.-active"
     );
@@ -109,8 +109,8 @@ function checkForMatch() {
     ) {
       matched($activeMemoryCards);
       console.log("acertou");
-      score += 10;
-      console.log(`${score} pontos`);
+      store.score += 10;
+      console.log(`${store.score} pontos`);
     } else {
       console.log("errou");
       unmatched($activeMemoryCards);
@@ -122,7 +122,7 @@ function matched($activeMemoryCards) {
   $activeMemoryCards.forEach($memoryCard => {
     $memoryCard.classList.remove("-active");
     $memoryCard.classList.add("-score");
-    qttActiveMemoryCard = 0;
+    store.qttActiveMemoryCard = 0;
   });
 }
 
@@ -130,7 +130,7 @@ function unmatched($activeMemoryCards) {
   setTimeout(() => {
     $activeMemoryCards.forEach($memoryCard => {
       $memoryCard.classList.remove("-active");
-      qttActiveMemoryCard = 0;
+      store.qttActiveMemoryCard = 0;
     });
   }, 1500);
 }
