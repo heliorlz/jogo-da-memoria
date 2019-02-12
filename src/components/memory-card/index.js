@@ -62,7 +62,7 @@ const memoryCard = () => {
   $head.insertBefore($style, null);
 
   return ({ src, alt, dataIcone }) => ` 
-    <div class="memory-card" data-icone="${dataIcone}" onclick="handleClick(this)">
+    <div class="memory-card" data-icone="${dataIcone}" onclick="cardActs.handleClick(this)">
       <article class="card -front">
         <img 
             src="${src}" 
@@ -82,55 +82,59 @@ const memoryCard = () => {
     `;
 };
 
-const handleClick = $component => {
-  if (!$component.classList.contains("-active")) {
-    activeMemoryCard($component);
-    checkForMatch();
-  }
-};
+const cardActs = (function() { // me falhou entender o porquê de cardActs.handleClick na inserção do HTML acima, seguindo a live
+  return {
+    handleClick: function($component) {
+      if (!$component.classList.contains("-active")) {
+        activeMemoryCard($component);
+        checkForMatch();
+      }
+    }
+  };
 
-function activeMemoryCard($component) {
-  if (store.qttActiveMemoryCard < 2) {
-    $component.classList.add("-active");
-  }
-}
-
-function checkForMatch() {
-  if (store.qttActiveMemoryCard === 1) {
-    const $activeMemoryCards = document.querySelectorAll(
-      ".memory-card.-active"
-    );
-
-    if (
-      $activeMemoryCards[0]
-        .querySelector(".-front .icon")
-        .getAttribute("src") ===
-      $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
-    ) {
-      matched($activeMemoryCards);
-      console.log("acertou");
-      store.score += 10;
-      console.log(`${store.score} pontos`);
-    } else {
-      console.log("errou");
-      unmatched($activeMemoryCards);
+  function activeMemoryCard($component) {
+    if (store.qttActiveMemoryCard < 2) {
+      $component.classList.add("-active");
     }
   }
-}
 
-function matched($activeMemoryCards) {
-  $activeMemoryCards.forEach($memoryCard => {
-    $memoryCard.classList.remove("-active");
-    $memoryCard.classList.add("-score");
-    store.qttActiveMemoryCard = 0;
-  });
-}
+  function checkForMatch() {
+    if (store.qttActiveMemoryCard === 1) {
+      const $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active"
+      );
 
-function unmatched($activeMemoryCards) {
-  setTimeout(() => {
+      if (
+        $activeMemoryCards[0]
+          .querySelector(".-front .icon")
+          .getAttribute("src") ===
+        $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
+      ) {
+        matched($activeMemoryCards);
+        console.log("acertou");
+        store.score += 10;
+        console.log(`${store.score} pontos`);
+      } else {
+        console.log("errou");
+        unmatched($activeMemoryCards);
+      }
+    }
+  }
+
+  function matched($activeMemoryCards) {
     $activeMemoryCards.forEach($memoryCard => {
       $memoryCard.classList.remove("-active");
+      $memoryCard.classList.add("-score");
       store.qttActiveMemoryCard = 0;
     });
-  }, 1500);
-}
+  }
+
+  function unmatched($activeMemoryCards) {
+    setTimeout(() => {
+      $activeMemoryCards.forEach($memoryCard => {
+        $memoryCard.classList.remove("-active");
+        store.qttActiveMemoryCard = 0;
+      });
+    }, 1500);
+  }
+})();
