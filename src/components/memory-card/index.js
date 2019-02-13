@@ -1,5 +1,5 @@
 const memoryCard = (function() {
-  // outra forma de organização, atraves da criacao de um modulo contendo todas as funcoes
+  // padronizando funcoes privadas, acrescentando o underline (_matched) na frente do nome
   const module = {};
   
   module.create = () => {
@@ -89,18 +89,18 @@ const memoryCard = (function() {
 
   module.handleClick = $component => {
     if (!$component.classList.contains("-active")) {
-      module.activeMemoryCard($component);
-      module.checkForMatch();
+      module._activeMemoryCard($component);
+      module._checkForMatch();
     }
   };
 
-  module.activeMemoryCard = $component => {
+  module._activeMemoryCard = $component => {
     if (store.qttActiveMemoryCard < 2) {
       $component.classList.add("-active");
     }
   };
 
-  module.checkForMatch = () => {
+  module._checkForMatch = () => {
     if (store.qttActiveMemoryCard === 1) {
       const $activeMemoryCards = document.querySelectorAll(
         ".memory-card.-active"
@@ -112,19 +112,19 @@ const memoryCard = (function() {
           .getAttribute("src") ===
         $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
       ) {
-        module.matched($activeMemoryCards);
+        module._matched($activeMemoryCards);
         console.log("acertou");
         store.score += 10;
         console.log(`${store.score} pontos`);
       } else {
         console.log("errou");
-        module.unmatched($activeMemoryCards);
+        module._unmatched($activeMemoryCards);
       }
     }
   };
 
   // funcao que chama outra funcao, dentro da IIFE, nao precisa ser exposta
-  module.matched = $activeMemoryCards => {
+  module._matched = $activeMemoryCards => {
     $activeMemoryCards.forEach($memoryCard => {
       $memoryCard.classList.remove("-active");
       $memoryCard.classList.add("-score");
@@ -132,7 +132,7 @@ const memoryCard = (function() {
     });
   };
 
-  module.unmatched = $activeMemoryCards => {
+  module._unmatched = $activeMemoryCards => {
     setTimeout(() => {
       $activeMemoryCards.forEach($memoryCard => {
         $memoryCard.classList.remove("-active");
