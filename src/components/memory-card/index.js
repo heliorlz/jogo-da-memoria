@@ -1,5 +1,4 @@
 const memoryCard = (function() {
-  // me falhou entender o porquê de cardActs.handleClick na inserção do HTML acima, seguindo a live
   function memoryCard() {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
@@ -63,8 +62,9 @@ const memoryCard = (function() {
       `;
     $head.insertBefore($style, null);
 
+    // por ser retornado atraves de json, a funcao handleclick deve ser agora memoryCard.handleClick, pois esta exposta desta forma para fora da funcao IIFE
     return ({ src, alt, dataIcone }) => ` 
-      <div class="memory-card" data-icone="${dataIcone}" onclick="cardActs.handleClick(this)">
+      <div class="memory-card" data-icone="${dataIcone}" onclick="memoryCard.handleClick(this)"> 
         <article class="card -front">
           <img 
               src="${src}" 
@@ -136,5 +136,8 @@ const memoryCard = (function() {
     }, 1500);
   }
 
-  return memoryCard; // return da IIFE que expoe o memory-card para fora
+  return {
+    newMemoryCard: memoryCard, // para expor multiplas coisas para fora utilizamos json, newMemoryCard ( chave ) : memoryCard ( valor )
+    handleClick: handleClick
+  };
 })();
