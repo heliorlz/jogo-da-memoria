@@ -1,5 +1,5 @@
 const memoryCard = (function() {
-  function memoryCard() {
+  const create = () => {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
 
@@ -82,7 +82,7 @@ const memoryCard = (function() {
         </'article>
       </div>
       `;
-  }
+  };
 
   const handleClick = $component => {
     if (!$component.classList.contains("-active")) {
@@ -90,13 +90,14 @@ const memoryCard = (function() {
       checkForMatch();
     }
   };
-  function activeMemoryCard($component) {
+
+  const activeMemoryCard = $component => {
     if (store.qttActiveMemoryCard < 2) {
       $component.classList.add("-active");
     }
-  }
+  };
 
-  function checkForMatch() {
+  const checkForMatch = () => {
     if (store.qttActiveMemoryCard === 1) {
       const $activeMemoryCards = document.querySelectorAll(
         ".memory-card.-active"
@@ -117,27 +118,28 @@ const memoryCard = (function() {
         unmatched($activeMemoryCards);
       }
     }
-  }
+  };
 
-  function matched($activeMemoryCards) {
+  // funcao que chama outra funcao, dentro da IIFE, nao precisa ser exposta
+  const matched = $activeMemoryCards => {
     $activeMemoryCards.forEach($memoryCard => {
       $memoryCard.classList.remove("-active");
       $memoryCard.classList.add("-score");
       store.qttActiveMemoryCard = 0;
     });
-  }
+  };
 
-  function unmatched($activeMemoryCards) {
+  const unmatched = $activeMemoryCards => {
     setTimeout(() => {
       $activeMemoryCards.forEach($memoryCard => {
         $memoryCard.classList.remove("-active");
         store.qttActiveMemoryCard = 0;
       });
     }, 1500);
-  }
+  };
 
   return {
-    newMemoryCard: memoryCard, // para expor multiplas coisas para fora utilizamos json, newMemoryCard ( chave ) : memoryCard ( valor )
-    handleClick: handleClick
+    create, // caso a chave tenha o mesmo nome do valor a receber, podemos declarar desta forma direta
+    handleClick
   };
 })();
