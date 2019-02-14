@@ -23,10 +23,11 @@ const pointBar = (function() {
     $head.insertBefore($style, null);
   };
 
+  // sistema que recebe a pontuacao do nosso game e expoe na nossa point-bar
   module.scoreSystem = () => {
-      const $showScore = document.querySelector(".number");
-      $showScore.textContent = store.score;
-  }
+    const $showScore = document.querySelector(".number");
+    $showScore.textContent = store.score;
+  };
 
   module.create = () => {
     module.style();
