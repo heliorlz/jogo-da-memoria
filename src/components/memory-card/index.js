@@ -115,7 +115,7 @@ const memoryCard = (function() {
         module._matched($activeMemoryCards);
         console.log("acertou");
         store.score += 10;
-        console.log(`${store.score} pontos`);
+        pointBar.score();
       } else {
         console.log("errou");
         module._unmatched($activeMemoryCards);

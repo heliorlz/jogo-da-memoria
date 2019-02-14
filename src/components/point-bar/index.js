@@ -23,17 +23,23 @@ const pointBar = (function() {
     $head.insertBefore($style, null);
   };
 
+  module.scoreSystem = () => {
+      const $showScore = document.querySelector(".number");
+      $showScore.textContent = store.score;
+  }
+
   module.create = () => {
     module.style();
 
     return `
         <header class="point-bar">
-            <span class="number">1</span>
+            <span class="number">0</span>
         </header>
       `;
   };
 
   return {
-    create: module.create
+    create: module.create,
+    score: module.scoreSystem
   };
 })();
