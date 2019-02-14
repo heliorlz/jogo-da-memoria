@@ -1,10 +1,12 @@
-// IIFE - Immediately Invoked Function Expressiom 
-(function (){
+// IIFE - Immediately Invoked Function Expressiom
+(function() {
   const $root = document.querySelector("#root");
 
   const $cardsWrapper = createCardsWrapper();
-
   const createMemoryCard = memoryCard.create();
+
+  const $pointBar = pointBar.create();
+  const $startButton = startButton.create();
 
   const $memoryCardHead = createMemoryCard({
     src: "img/icon-js.png",
@@ -39,5 +41,7 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 
+  $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
+  $root.insertAdjacentHTML("beforeend", $startButton);
 })();

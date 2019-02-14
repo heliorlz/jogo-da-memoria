@@ -9,9 +9,9 @@ function createCardsWrapper() {
   .cards-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding-top: 10px;
-    width: 100vw;
+    width: 100wv;
   }
 
   .cards-wrapper > .memory-card {
@@ -21,8 +21,9 @@ function createCardsWrapper() {
   $head.insertBefore($style, null);
 
   $cardsWrapper.addEventListener("click", () => {
-    store.qttActiveMemoryCard = $cardsWrapper.querySelectorAll(".memory-card.-active")
-      .length;
+    store.qttActiveMemoryCard = $cardsWrapper.querySelectorAll(
+      ".memory-card.-active"
+    ).length;
   });
 
   return $cardsWrapper;
