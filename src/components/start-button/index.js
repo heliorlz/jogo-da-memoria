@@ -20,10 +20,15 @@ const startButton = (function() {
             cursor: pointer;
             box-shadow: 0px 4px 8px #3a4042;
             z-index: 3;
+            overflow: hidden;
+            max-height: 1000px;
+            transition: max-height 3s linear;
         }
 
         .start-button.-hidden {
-          display: none;
+          max-height: 0;
+          border: none;
+          
         }
 
         .start-button > span {

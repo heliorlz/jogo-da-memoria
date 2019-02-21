@@ -13,10 +13,15 @@ const freezeGame = (function() {
             height: calc(100% + 25px);
             width: 100%;
             z-index: 2;
+            transition: display 2s;
+            overflow: hidden;
+            max-height: 1000px;
+            transition: max-height 2s linear;
         }
 
         .freeze-game.-hidden {
-            display: none;
+            max-height: 0;
+            
         }
       `;
     $head.insertBefore($style, null);
