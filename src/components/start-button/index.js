@@ -22,6 +22,10 @@ const startButton = (function() {
             z-index: 3;
         }
 
+        .start-button.-hidden {
+          display: none;
+        }
+
         .start-button > span {
             color: #fff;
             font-weight: bold;
@@ -37,13 +41,24 @@ const startButton = (function() {
     module._style();
 
     return `
-        <button class="start-button">
+        <button class="start-button" onclick="startButton.handleClick()">
             <span>Start</span>
         </button>
     `;
   };
 
+  module.handleclick = () => {
+    const $startButton = document.querySelector(".start-button");
+    const $layer = document.querySelector(".freeze-game");
+
+    if (!$startButton.classList.contains("-hidden")) {
+      $layer.classList.add("-hidden");
+      $startButton.classList.add("-hidden");
+    }
+  };
+
   return {
-    create: module.create
+    create: module.create,
+    handleClick: module.handleclick
   };
 })();

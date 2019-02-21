@@ -14,6 +14,10 @@ const freezeGame = (function() {
             width: 100%;
             z-index: 2;
         }
+
+        .freeze-game.-hidden {
+            display: none;
+        }
       `;
     $head.insertBefore($style, null);
   };
