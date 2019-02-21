@@ -1,7 +1,7 @@
 const pointBar = (function() {
   const module = {};
 
-  module.style = function() {
+  module._style = function() {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
 
@@ -30,7 +30,7 @@ const pointBar = (function() {
   };
 
   module.create = () => {
-    module.style();
+    module._style();
 
     return `
         <header class="point-bar">
