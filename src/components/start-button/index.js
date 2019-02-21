@@ -19,6 +19,7 @@ const startButton = (function() {
             font-family: 'Comfortaa', sans-serif;
             cursor: pointer;
             box-shadow: 0px 4px 8px #3a4042;
+            z-index: 3;
         }
 
         .start-button > span {

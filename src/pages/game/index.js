@@ -7,6 +7,7 @@
 
   const $pointBar = pointBar.create();
   const $startButton = startButton.create();
+  const $freezeGame = freezeGame.create();
 
   const $memoryCardHead = createMemoryCard({
     src: "img/icon-js.png",
@@ -42,6 +43,7 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 
   $root.insertAdjacentHTML("afterbegin", $pointBar);
+  $root.insertAdjacentHTML("afterbegin", $freezeGame);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
   $root.insertAdjacentHTML("beforeend", $startButton);
 })();
