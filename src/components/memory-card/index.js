@@ -8,8 +8,8 @@ const memoryCard = (function() {
 
     $style.textContent = `
         .memory-card {
-          width: 130px;
-          height: 130px;
+          width: 120px;
+          height: 120px;
           position: relative;
           z-index: 1;
         }
@@ -41,16 +41,16 @@ const memoryCard = (function() {
         
        .memory-card .card.-front::before {
           content: "";
-          width: 95px;
-          height: 95px;
+          width: 75px;
+          height: 75px;
           background-color: #d4d4d4;
           border-radius: 50%;
           position: absolute;
         }
         
        .memory-card .card > .icon {
-          width: 100px;
-          height: 100px;
+          width: 80px;
+          height: 80px;
         }
   
        .memory-card .card.-front {

@@ -14,7 +14,7 @@ const startButton = (function() {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            bottom: -10px;
+            bottom: 120px;
             background-color: #2ed573;
             font-family: 'Comfortaa', sans-serif;
             cursor: pointer;
@@ -42,7 +42,7 @@ const startButton = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.create = () => {
+  module.render = () => {
     module._style();
 
     return `
@@ -54,7 +54,7 @@ const startButton = (function() {
 
   module.handleclick = () => {
     const $startButton = document.querySelector(".start-button");
-    const $layer = document.querySelector(".freeze-game");
+    const $layer = document.querySelector(".transparency-layer");
 
     if (!$startButton.classList.contains("-hidden")) {
       $layer.classList.add("-hidden");
@@ -63,7 +63,7 @@ const startButton = (function() {
   };
 
   return {
-    create: module.create,
+    render: module.render,
     handleClick: module.handleclick
   };
 })();

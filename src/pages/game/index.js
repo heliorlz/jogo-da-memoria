@@ -6,8 +6,8 @@
   const createMemoryCard = memoryCard.create();
 
   const $pointBar = pointBar.create();
-  const $startButton = startButton.create();
-  const $freezeGame = freezeGame.create();
+  const $startButton = startButton.render();
+  const $transparencyLayer = transparencyLayer.render();
 
   const $memoryCardHead = createMemoryCard({
     src: "img/icon-js.png",
@@ -43,7 +43,7 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 
   $root.insertAdjacentHTML("afterbegin", $pointBar);
-  $root.insertAdjacentHTML("afterbegin", $freezeGame);
+  $root.insertAdjacentHTML("afterbegin", $transparencyLayer);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
   $root.insertAdjacentHTML("beforeend", $startButton);
 })();

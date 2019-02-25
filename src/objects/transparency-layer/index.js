@@ -1,4 +1,4 @@
-const freezeGame = (function() {
+const transparencyLayer = (function() {
   const module = {};
 
   module._style = () => {
@@ -6,11 +6,11 @@ const freezeGame = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-        .freeze-game {
+        .transparency-layer {
             background-color: white;
             opacity: 0.8;
             position: absolute;
-            height: calc(100% + 25px);
+            height: 100vh;
             width: 100%;
             z-index: 2;
             transition: display 2s;
@@ -19,24 +19,23 @@ const freezeGame = (function() {
             transition: max-height 2s linear;
         }
 
-        .freeze-game.-hidden {
+        .transparency-layer.-hidden {
             max-height: 0;
-            
         }
       `;
     $head.insertBefore($style, null);
   };
 
-  module.create = () => {
+  module.render = () => {
     module._style();
 
     return `
-        <section class="freeze-game">
-        </section>
+        <div class="transparency-layer">
+        </div>
     `;
   };
 
   return {
-    create: module.create
+    render: module.render
   };
 })();
