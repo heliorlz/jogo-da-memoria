@@ -6,37 +6,34 @@ const startButton = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-        .start-button {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 3px solid #fffcee;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 120px;
-            background-color: #2ed573;
-            font-family: 'Comfortaa', sans-serif;
-            cursor: pointer;
-            box-shadow: 0px 4px 8px #3a4042;
-            z-index: 3;
-            overflow: hidden;
-            max-height: 1000px;
-            transition: max-height 3s linear;
+      .start-button {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          border: 3px solid #fffcee;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 30px;
+          background-color: #2ed573;
+          font-family: 'Comfortaa', sans-serif;
+          cursor: pointer;
+          box-shadow: 0px 4px 8px #3a4042;
+          z-index: 3;
+          opacity: 1;
+          transition: opacity 1s linear; 
         }
 
-        .start-button.-hidden {
-          max-height: 0;
-          border: none;
-          
+        .start-button.-disable {
+          opacity: 0;
         }
 
         .start-button > span {
-            color: #fff;
-            font-weight: bold;
-            line-height: 70px;
-            font-size: 12px;
-            text-transform: uppercase;
+          color: #fff;
+          font-weight: bold;
+          line-height: 70px;
+          font-size: 12px;
+          text-transform: uppercase;
         }
       `;
     $head.insertBefore($style, null);

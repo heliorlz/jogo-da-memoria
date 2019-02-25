@@ -13,6 +13,7 @@ const transparencyLayer = (function() {
             width: 100%;
             top: 0;
             z-index: 2;
+            overflow: hidden;
         }
       `;
     $head.insertBefore($style, null);
