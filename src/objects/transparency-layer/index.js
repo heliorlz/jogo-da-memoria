@@ -7,13 +7,11 @@ const transparencyLayer = (function() {
 
     $style.textContent = `
         .transparency-layer {
-            background-color: white;
-            opacity: 0.8;
+            background-color: rgba(58, 64, 66, 0.8);
             position: absolute;
             height: 100vh;
             width: 100%;
             z-index: 2;
-            transition: display 2s;
             overflow: hidden;
             max-height: 1000px;
             transition: max-height 2s linear;
