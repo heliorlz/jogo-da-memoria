@@ -11,14 +11,8 @@ const transparencyLayer = (function() {
             position: absolute;
             height: 100vh;
             width: 100%;
+            top: 0;
             z-index: 2;
-            overflow: hidden;
-            max-height: 1000px;
-            transition: max-height 2s linear;
-        }
-
-        .transparency-layer.-hidden {
-            max-height: 0;
         }
       `;
     $head.insertBefore($style, null);

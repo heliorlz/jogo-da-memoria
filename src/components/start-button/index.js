@@ -42,24 +42,20 @@ const startButton = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.render = () => {
+  // atraves do parametro content, colocamos o conteudo do botao dinamicamente, recebido na page
+  module.render = content => {
     module._style();
 
     return `
-        <button class="start-button" onclick="startButton.handleClick()">
-            <span>Start</span>
+        <button class="start-button">
+            <span>${content}</span>
         </button>
     `;
   };
 
-  module.handleclick = () => {
-    const $startButton = document.querySelector(".start-button");
-    const $layer = document.querySelector(".transparency-layer");
-
-    if (!$startButton.classList.contains("-hidden")) {
-      $layer.classList.add("-hidden");
-      $startButton.classList.add("-hidden");
-    }
+  module.handleclick = $component => {
+    $component.remove();
+    document.querySelector(".transparency-layer").remove();
   };
 
   return {

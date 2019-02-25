@@ -6,8 +6,7 @@
   const createMemoryCard = memoryCard.create();
 
   const $pointBar = pointBar.create();
-  const $startButton = startButton.render();
-  const $transparencyLayer = transparencyLayer.render();
+  const $layerStart = layerStart.render("Go");
 
   const $memoryCardHead = createMemoryCard({
     src: "img/icon-js.png",
@@ -43,7 +42,6 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 
   $root.insertAdjacentHTML("afterbegin", $pointBar);
-  $root.insertAdjacentHTML("afterbegin", $transparencyLayer);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
-  $root.insertAdjacentHTML("beforeend", $startButton);
+  $root.insertAdjacentHTML("beforeend", $layerStart);
 })();
