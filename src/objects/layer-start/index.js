@@ -9,12 +9,18 @@ const layerStart = (function() {
     $transparencyLayer.classList.add("-disable");
   };
 
+  module.handleTransitionEnd = $component => {
+    if ($component.classList.contains("transparency-layer")) {
+      $component.remove();
+    }
+  };
+
   module.render = content => {
     const $transparencyLayer = transparencyLayer.render();
     const $startButton = startButton.render(content);
 
     return `
-        <div class="layer-start" onClick="layerStart.handleClick(this)">
+        <div class="layer-start" onClick="layerStart.handleClick(this)" onTransitionEnd="layerStart.handleTransitionEnd(event, this)">
             ${$transparencyLayer}
             ${$startButton}
         </div>
@@ -23,6 +29,7 @@ const layerStart = (function() {
 
   return {
     render: module.render,
-    handleClick: module.handleClick
+    handleClick: module.handleClick,
+    handleTransitionEnd: module.handleTransitionEnd
   };
 })();
