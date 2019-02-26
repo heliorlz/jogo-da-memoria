@@ -14,7 +14,7 @@ const startButton = (function() {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
-          bottom: 30px;
+          bottom: 50px;
           background-color: #2ed573;
           font-family: 'Comfortaa', sans-serif;
           cursor: pointer;
@@ -24,10 +24,12 @@ const startButton = (function() {
           line-height: 70px;
           font-size: 12px;
           text-transform: uppercase;
-          transition: opacity 300ms linear; 
+          transition: all 300ms linear; 
         }
 
         .start-button.-disable {
+          transform: scale(2.5);
+          transform-origin: 80%;
           opacity: 0;
         }
       `;
