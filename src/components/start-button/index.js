@@ -19,19 +19,16 @@ const startButton = (function() {
           font-family: 'Comfortaa', sans-serif;
           cursor: pointer;
           box-shadow: 0px 4px 8px #3a4042;
-          transition: opacity 300s linear; 
-        }
-
-        .start-button.-disable {
-          opacity: 0;
-        }
-
-        .start-button > span {
           color: #fff;
           font-weight: bold;
           line-height: 70px;
           font-size: 12px;
           text-transform: uppercase;
+          transition: opacity 300ms linear; 
+        }
+
+        .start-button.-disable {
+          opacity: 0;
         }
       `;
     $head.insertBefore($style, null);
@@ -43,18 +40,12 @@ const startButton = (function() {
 
     return `
         <button class="start-button">
-            <span>${content}</span>
+          ${content}
         </button>
     `;
   };
 
-  module.handleclick = $component => {
-    $component.remove();
-    document.querySelector(".transparency-layer").remove();
-  };
-
   return {
-    render: module.render,
-    handleClick: module.handleclick
+    render: module.render
   };
 })();
