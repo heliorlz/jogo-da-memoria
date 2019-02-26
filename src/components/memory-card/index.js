@@ -11,7 +11,6 @@ const memoryCard = (function() {
           width: 120px;
           height: 120px;
           position: relative;
-          z-index: 1;
         }
     
         .memory-card .card {

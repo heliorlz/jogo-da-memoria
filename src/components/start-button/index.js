@@ -19,9 +19,7 @@ const startButton = (function() {
           font-family: 'Comfortaa', sans-serif;
           cursor: pointer;
           box-shadow: 0px 4px 8px #3a4042;
-          z-index: 3;
-          opacity: 1;
-          transition: opacity 1s linear; 
+          transition: opacity 300s linear; 
         }
 
         .start-button.-disable {
