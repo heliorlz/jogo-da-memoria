@@ -24,12 +24,11 @@ const startButton = (function() {
           line-height: 70px;
           font-size: 12px;
           text-transform: uppercase;
-          transition: all 300ms linear; 
+          transition: opacity 300ms linear, transform 300ms linear; 
         }
 
         .start-button.-disable {
-          transform: scale(2.5);
-          transform-origin: 80%;
+          transform: translateX(-50%) scale(2.5);
           opacity: 0;
         }
       `;

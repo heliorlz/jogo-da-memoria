@@ -20,7 +20,7 @@ const layerStart = (function() {
     const $startButton = startButton.render(content);
 
     return `
-        <div class="layer-start" onClick="layerStart.handleClick(this)" onTransitionEnd="layerStart.handleTransitionEnd(event, this)">
+        <div class="layer-start" onClick="layerStart.handleClick(this)" onTransitionEnd="layerStart.handleTransitionEnd(this)">
             ${$transparencyLayer}
             ${$startButton}
         </div>
