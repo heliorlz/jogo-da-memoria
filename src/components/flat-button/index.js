@@ -19,16 +19,24 @@ const flatButton = (function() {
           height: 176px;
           text-transform: uppercase;
       }
+
+      .-login {
+          background-color: #eae6da; 
+      }
+
+      .-signup {
+          background-color: #f25a70;
+      }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.render = content => {
+  module.render = (content, background) => {
     module._style();
 
     return `
-      <button class="flat-button">${content}</button>          
+      <button class="flat-button ${background}">${content}</button>          
     `;
   };
 
