@@ -2,8 +2,9 @@
   const $root = document.querySelector("#root");
 
   const $flatButton = flatButton.render();
+  const $flatButtonSignUp = flatButton.render();
 
   //inserting HTML content
   $root.insertAdjacentHTML("afterbegin", $flatButton);
-  $root.insertAdjacentHTML("beforeend", "<h1>WELCOME</h1>");
+  $root.insertAdjacentHTML("afterbegin", $flatButtonSignUp);
 })();
