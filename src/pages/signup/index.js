@@ -4,16 +4,17 @@
   const $loginButton = flatButton.render("Log in");
   const $signupButton = flatButton.render("Sign up", true);
 
-  const $logosWrapper = createLogosWrapper();
-  const $beginTitle = beginTitle.render("Welcome!");
+  // const $avatarWrapper = createAvatarWrapper();
+  const $titleGame = titleGame.render("Welcome!");
   const $gueioIcon = gueioIcon.render();
 
+  const $logoWrapper = logoWrapper.render($gueioIcon, $titleGame);
   // inserting elements inside logos-wrapper
-  $logosWrapper.insertAdjacentHTML("beforeend", $gueioIcon);
-  $logosWrapper.insertAdjacentHTML("beforeend", $beginTitle);
+  // $avatarWrapper.insertAdjacentHTML("beforeend", $gueioIcon);
+  // $avatarWrapper.insertAdjacentHTML("beforeend", $titleGame);
 
   // inserting HTML content
   $root.insertAdjacentHTML("beforeend", $loginButton);
   $root.insertAdjacentHTML("beforeend", $signupButton);
-  $root.insertAdjacentElement("beforeend", $logosWrapper);
+  $root.insertAdjacentHTML("beforeend", $logoWrapper);
 })();
