@@ -9,9 +9,8 @@ const logoWrapper = (function() {
     .logo-wrapper {
         width: 250px;
         background: #fff;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -25%);
+        margin: 0 auto;
+        transform: translateY(-25%);
         border-radius: 150px 150px 0 0;
         display: flex;
         flex-direction: column;

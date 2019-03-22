@@ -13,8 +13,14 @@
   // $avatarWrapper.insertAdjacentHTML("beforeend", $gueioIcon);
   // $avatarWrapper.insertAdjacentHTML("beforeend", $titleGame);
 
+  const $formLabel = formLabel.render();
+  const $inputEmail = inputEmail.render();
+
+  const $formWrapper = formWrapper.render($formLabel, $inputEmail);
+
   // inserting HTML content
   $root.insertAdjacentHTML("beforeend", $loginButton);
   $root.insertAdjacentHTML("beforeend", $signupButton);
   $root.insertAdjacentHTML("beforeend", $logoWrapper);
+  $root.insertAdjacentHTML("beforeend", $formWrapper);
 })();
