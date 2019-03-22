@@ -19,7 +19,7 @@ const formLabel = (function() {
   module.render = () => {
     module._style();
 
-    return `<label class="form-label" for="Email">Username or e-mail</label>`;
+    return `<label class="form-label" for="Email">E-mail</label>`;
   };
 
   return {
