@@ -17,6 +17,11 @@ const flatButton = (function() {
           height: 176px;
           text-transform: uppercase;
       }
+
+      .flat-button-${module._id} span {
+        display: block;
+        margin-top: -30px; 
+      }
     `;
 
     $head.insertBefore($style, null);
@@ -28,7 +33,9 @@ const flatButton = (function() {
 
     module._style(active);
 
-    return `<button class="flat-button-${module._id}">${content}</button>`;
+    return `<button class="flat-button-${
+      module._id
+    }"><span>${content}</span></button>`;
   };
 
   return {
