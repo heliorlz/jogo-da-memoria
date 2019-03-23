@@ -13,10 +13,10 @@
   // $avatarWrapper.insertAdjacentHTML("beforeend", $gueioIcon);
   // $avatarWrapper.insertAdjacentHTML("beforeend", $titleGame);
 
-  const $formLabel = formLabel.render();
-  const $inputEmail = inputEmail.render();
-
-  const $formWrapper = formWrapper.render($formLabel, $inputEmail);
+  // rendering form signup
+  const $labelForm = labelForm.render("E-mail");
+  const $inputForm = inputForm.render("email", "Email");
+  const $formWrapper = formWrapper.render($labelForm, $inputForm);
 
   // inserting HTML content
   $root.insertAdjacentHTML("beforeend", $loginButton);

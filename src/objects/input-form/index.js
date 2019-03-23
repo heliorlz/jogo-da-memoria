@@ -1,4 +1,4 @@
-const inputEmail = (function() {
+const inputForm = (function() {
   const module = {};
 
   module._style = () => {
@@ -6,28 +6,23 @@ const inputEmail = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .input-email {
-        border: none;
+      .input-form {
         background-color: transparent;
         border-bottom: 2px solid rgba(23, 25, 26, 0.2);
-        padding-bottom: 10px;
+        padding: 12px 0;
         font-size: 18px;
         font-weight: bold;
         color: #3a4042;
-      }
-
-      input[type="email"] {
-        font-family: "Comfortaa", sans-serif;
       }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.render = () => {
+  module.render = (type, id) => {
     module._style();
 
-    return `<input class="input-email" type="email" id="Email">`;
+    return `<input class="input-form" type="${type}" id="${id}">`;
   };
 
   return {

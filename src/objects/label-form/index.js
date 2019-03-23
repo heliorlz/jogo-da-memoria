@@ -1,4 +1,4 @@
-const formLabel = (function() {
+const labelForm = (function() {
   const module = {};
 
   module._style = () => {
@@ -6,8 +6,7 @@ const formLabel = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .form-label {
-          margin-bottom: 10px;
+      .label-form {
           color: #3a4042;
           opacity: 0.5;
       }
@@ -16,10 +15,10 @@ const formLabel = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.render = () => {
+  module.render = content => {
     module._style();
 
-    return `<label class="form-label" for="Email">E-mail</label>`;
+    return `<label class="label-form" for="Email">${content}</label>`;
   };
 
   return {
