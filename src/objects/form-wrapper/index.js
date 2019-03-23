@@ -10,6 +10,7 @@ const formWrapper = (function() {
           display: flex;
           flex-direction: column;
           padding: 0 35px;
+          margin-top: 30px;
           transform: translateY(-20%);
       }
     `;

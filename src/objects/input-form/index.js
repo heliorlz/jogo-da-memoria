@@ -10,6 +10,7 @@ const inputForm = (function() {
         background-color: transparent;
         border-bottom: 2px solid rgba(23, 25, 26, 0.2);
         padding: 12px 0;
+        margin-bottom: 30px;
         font-size: 18px;
         font-weight: bold;
         color: #3a4042;

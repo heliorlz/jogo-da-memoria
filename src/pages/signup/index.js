@@ -14,9 +14,24 @@
   // $avatarWrapper.insertAdjacentHTML("beforeend", $titleGame);
 
   // rendering form signup
-  const $labelForm = labelForm.render("E-mail");
-  const $inputForm = inputForm.render("email", "Email");
-  const $formWrapper = formWrapper.render($labelForm, $inputForm);
+  const $labelFormUser = labelForm.render("Username");
+  const $inputFormUser = inputForm.render("text", "Username");
+  const $labelFormEmail = labelForm.render("E-mail");
+  const $inputFormEmail = inputForm.render("email", "Email");
+  const $labelFormPassword = labelForm.render("Password");
+  const $inputFormPassword = inputForm.render("password", "Password");
+  const $labelFormRepassword = labelForm.render("Confirm password");
+  const $inputFormRepassword = inputForm.render("password", "Password");
+  const $formWrapper = formWrapper.render(
+    $labelFormUser,
+    $inputFormUser,
+    $labelFormEmail,
+    $inputFormEmail,
+    $labelFormPassword,
+    $inputFormPassword,
+    $labelFormRepassword,
+    $inputFormRepassword
+  );
 
   // inserting HTML content
   $root.insertAdjacentHTML("beforeend", $loginButton);
