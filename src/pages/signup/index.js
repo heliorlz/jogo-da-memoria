@@ -22,6 +22,7 @@
   const $inputFormPassword = inputForm.render("password", "Password");
   const $labelFormRepassword = labelForm.render("Confirm password");
   const $inputFormRepassword = inputForm.render("password", "Password");
+  const $submitButton = submitButton.render("Submit");
   const $formWrapper = formWrapper.render(
     $labelFormUser,
     $inputFormUser,
@@ -30,8 +31,11 @@
     $labelFormPassword,
     $inputFormPassword,
     $labelFormRepassword,
-    $inputFormRepassword
+    $inputFormRepassword,
+    $submitButton
   );
+
+  
 
   // inserting HTML content
   $root.insertAdjacentHTML("beforeend", $loginButton);
