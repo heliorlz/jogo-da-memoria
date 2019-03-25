@@ -15,6 +15,7 @@ const submitButton = (function() {
         text-transform: uppercase;
         margin-top: 30px;
         border-radius: 24px;
+        cursor: pointer;
       }
     `;
     $head.insertBefore($style, null);
