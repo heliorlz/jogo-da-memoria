@@ -1,0 +1,20 @@
+{
+  "name": "jogo-da-memoria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "regexTest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heliorlz/jogo-da-memoria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heliorlz/jogo-da-memoria/issues"
+  },
+  "homepage": "https://github.com/heliorlz/jogo-da-memoria#readme"
+}
