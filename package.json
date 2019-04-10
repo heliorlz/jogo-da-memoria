@@ -1,20 +1,27 @@
 {
   "name": "jogo-da-memoria",
   "version": "1.0.0",
-  "description": "",
-  "main": "regexTest.js",
+  "description": "Jogo da memória",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heliorlz/jogo-da-memoria.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "jogo",
+    "memoria"
+  ],
+  "author": "Helio Alves",
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/heliorlz/jogo-da-memoria/issues"
   },
-  "homepage": "https://github.com/heliorlz/jogo-da-memoria#readme"
+  "homepage": "https://github.com/heliorlz/jogo-da-memoria#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
 }
