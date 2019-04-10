@@ -23,7 +23,8 @@ const inputForm = (function() {
   module.render = (type, id, content) => {
     module._style();
 
-    return `<input class="input-form" type="${type}" id="${id}" placeholder="${content}">`;
+    return `<input class="input-form" type="${type}" id="${id}" placeholder="${content ||
+      ""}">`;
   };
 
   return {

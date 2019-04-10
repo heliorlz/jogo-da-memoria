@@ -20,16 +20,16 @@ const formSignup = (function() {
   module._children = () => {
     // rendering form signup
     const $labelFormUser = labelForm.render("Username");
-    const $inputFormUser = inputForm.render("text", "Username", "");
+    const $inputFormUser = inputForm.render("text", "Username", "username");
 
     const $labelFormEmail = labelForm.render("E-mail");
     const $inputFormEmail = inputForm.render("email", "Email","example@teste.com");
 
     const $labelFormPassword = labelForm.render("Password");
-    const $inputFormPassword = inputForm.render("password", "Password", "");
+    const $inputFormPassword = inputForm.render("password", "Password", "******");
 
     const $labelFormRepassword = labelForm.render("Confirm password");
-    const $inputFormRepassword = inputForm.render("password", "Password", "");
+    const $inputFormRepassword = inputForm.render("password", "Password", "******");
 
     const $submitButton = submitButton.render("Submit");
 
