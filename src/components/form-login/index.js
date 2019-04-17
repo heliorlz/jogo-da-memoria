@@ -42,9 +42,9 @@ const formLogin = (function() {
       ${$labelFormPassword}
       ${$inputFormPassword}
   
-      ${$submitButton}
-
       ${$linkCollab}
+
+      ${$submitButton}
     `;
   };
 
