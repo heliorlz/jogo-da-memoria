@@ -20,12 +20,17 @@ const formLogin = (function() {
   module._children = () => {
     // rendering form login
     const $labelFormUser = labelForm.render("Username or e-mail");
-    const $inputFormUser = inputForm.render();
+    const $inputFormUser = inputForm.render({});
 
     const $labelFormPassword = labelForm.render("Password");
     const $inputFormPassword = inputForm.render({
       type: "password",
       placeholder: "******"
+    });
+
+    const $linkCollab = linkCollab.render({
+      href: "#",
+      content: "Forget password?"
     });
 
     const $submitButton = submitButton.render("Login");
@@ -38,6 +43,8 @@ const formLogin = (function() {
       ${$inputFormPassword}
   
       ${$submitButton}
+
+      ${$linkCollab}
     `;
   };
 
