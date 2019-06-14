@@ -20,6 +20,7 @@ const formLogin = (function() {
   module._children = () => {
     // rendering form login
     const $labelFormUser = labelForm.render("Username or e-mail");
+<<<<<<< HEAD
     const $inputFormUser = inputForm.render("text", "Username", "");
 
     const $labelFormPassword = labelForm.render("Password");
@@ -30,6 +31,20 @@ const formLogin = (function() {
     );
 
     const $eyeCollabCode = eyeCollabCode.render();
+=======
+    const $inputFormUser = inputForm.render({});
+
+    const $labelFormPassword = labelForm.render("Password");
+    const $inputFormPassword = inputForm.render({
+      type: "password",
+      placeholder: "******"
+    });
+
+    const $linkCollab = linkCollab.render({
+      href: "#",
+      content: "Forget password?"
+    });
+>>>>>>> Aula044
 
     const $submitButton = submitButton.render("Login");
 
@@ -41,6 +56,8 @@ const formLogin = (function() {
       ${$inputFormPassword}
       ${$eyeCollabCode}
   
+      ${$linkCollab}
+
       ${$submitButton}
     `;
   };

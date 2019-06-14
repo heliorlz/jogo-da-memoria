@@ -18,7 +18,7 @@ const labelForm = (function() {
   module.render = content => {
     module._style();
 
-    return `<label class="label-form" for="Email">${content}</label>`;
+    return `<label class="label-form">${content}</label>`;
   };
 
   return {
