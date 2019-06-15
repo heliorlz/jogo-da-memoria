@@ -13,20 +13,26 @@ const eyeCollabCode = (function() {
         width: 24px;
         height: 15px;
         text-indent: -9999px; /* sumir com o texto Mostrar Senha */
+        cursor: pointer;
       }
     `;
 
     $head.insertAdjacentElement("beforeend", $style);
   };
 
+  module.handleClick = () => {
+    console.log("Aeee!!!");
+  };
+
   module.render = () => {
     module._style();
 
     // importante criar como texto, pois a imagem do olho não representa de fato algo, para acessibilidade
-    return `<label class="eye-collabcode">Mostrar Senha</label>`;
+    return `<label class="eye-collabcode" onclick="eyeCollabCode.handleClick()">Mostrar Senha</label>`;
   };
 
   return {
-    render: module.render
+    render: module.render,
+    handleClick: module.handleClick
   };
 })();
