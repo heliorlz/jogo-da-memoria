@@ -23,7 +23,7 @@ const inputForm = (function() {
   module.render = ({ type = "text", placeholder = "" }) => {
     module._style();
 
-    return `<input class="input-form" type="${type}" placeholder="${placeholder}">`;
+    return `<input id="password" class="input-form" type="${type}" placeholder="${placeholder}">`;
   };
 
   return {

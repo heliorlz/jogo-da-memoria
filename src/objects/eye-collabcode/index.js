@@ -28,7 +28,7 @@ const eyeCollabCode = (function() {
     module._style();
 
     // importante criar como texto, pois a imagem do olho não representa de fato algo, para acessibilidade
-    return `<label class="eye-collabcode" onclick="eyeCollabCode.handleClick()">Mostrar Senha</label>`;
+    return `<label for="password" class="eye-collabcode" onclick="eyeCollabCode.handleClick()">Mostrar Senha</label>`;
   };
 
   return {
