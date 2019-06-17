@@ -24,11 +24,11 @@ const eyeCollabCode = (function() {
     console.log("Aeee!!!");
   };
 
-  module.render = () => {
+  module.render = ({ attrFor = "" }) => {
     module._style();
 
     // importante criar como texto, pois a imagem do olho não representa de fato algo, para acessibilidade
-    return `<label for="password" class="eye-collabcode" onclick="eyeCollabCode.handleClick()">Mostrar Senha</label>`;
+    return `<label for="${attrFor}" class="eye-collabcode" onclick="eyeCollabCode.handleClick()">Mostrar Senha</label>`;
   };
 
   return {

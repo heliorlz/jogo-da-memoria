@@ -20,10 +20,10 @@ const inputForm = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.render = ({ type = "text", placeholder = "" }) => {
+  module.render = ({ id = "", type = "text", placeholder = "" }) => {
     module._style();
 
-    return `<input id="password" class="input-form" type="${type}" placeholder="${placeholder}">`;
+    return `<input id="${id}" class="input-form" type="${type}" placeholder="${placeholder}">`;
   };
 
   return {
