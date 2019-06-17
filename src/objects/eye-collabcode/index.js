@@ -14,6 +14,12 @@ const eyeCollabCode = (function() {
         height: 15px;
         text-indent: -9999px; /* sumir com o texto Mostrar Senha */
         cursor: pointer;
+        opacity: 0.3;
+        transition: opacity 200ms linear;
+      }
+
+      .eye-collabcode.-active {
+        opacity: 1;
       }
     `;
 
@@ -25,8 +31,10 @@ const eyeCollabCode = (function() {
     const $input = document.querySelector(`#${attrFor}`);
 
     if ($input.getAttribute("type") === "text") {
+      this.classList.remove("-active");
       $input.setAttribute("type", "password");
     } else {
+      this.classList.add("-active");
       $input.setAttribute("type", "text");
     }
 
