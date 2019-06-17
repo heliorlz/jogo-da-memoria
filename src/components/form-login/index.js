@@ -26,7 +26,7 @@ const formLogin = (function() {
     const $inputFormPassword = inputForm.render({
       id: "password",
       type: "password",
-      placeholder: "******"
+      placeholder: "8 digits"
     });
     const $eyeCollabCode = eyeCollabCode.render({ attrFor: "password" });
 
