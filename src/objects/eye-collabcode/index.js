@@ -24,7 +24,16 @@ const eyeCollabCode = (function() {
     const attrFor = this.getAttribute("for");
     const $input = document.querySelector(`#${attrFor}`);
 
-    $input.setAttribute("type", "text");
+    if ($input.getAttribute("type") === "text") {
+      $input.setAttribute("type", "password");
+    } else {
+      $input.setAttribute("type", "text");
+    }
+
+    // // logica acima utilizando if ternário
+    // $input.getAttribute("type") === "text"
+    //   ? $input.setAttribute("type", "password")
+    //   : $input.setAttribute("type", "text");
   };
 
   module.render = ({ attrFor = "" }) => {
