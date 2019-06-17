@@ -20,15 +20,17 @@ const eyeCollabCode = (function() {
     $head.insertAdjacentElement("beforeend", $style);
   };
 
-  module.handleClick = () => {
-    console.log("Aeee!!!");
+  module.handleClick = function() {
+    const attrFor = this.getAttribute("for");
+    const $input = document.querySelector(`#${attrFor}`);
+
+    $input.setAttribute("type", "text");
   };
 
   module.render = ({ attrFor = "" }) => {
     module._style();
 
-    // importante criar como texto, pois a imagem do olho não representa de fato algo, para acessibilidade
-    return `<label for="${attrFor}" class="eye-collabcode" onclick="eyeCollabCode.handleClick()">Mostrar Senha</label>`;
+    return `<label for="${attrFor}" class="eye-collabcode" onclick="eyeCollabCode.handleClick.bind(this)()">Mostrar Senha</label>`;
   };
 
   return {
