@@ -35,7 +35,10 @@ const formLogin = (function() {
       content: "Forget password?"
     });
 
-    const $submitButton = submitButton.render("Login");
+    const $submitButton = submitButton.render({
+      content: "Login",
+      path: "game"
+    });
 
     return `
       ${$labelFormUser}

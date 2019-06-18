@@ -1,8 +1,8 @@
 const signup = function() {
   const $root = document.querySelector("#root");
 
-  const $loginButton = flatButton.render("Log in");
-  const $signupButton = flatButton.render("Sign up", true);
+  const $loginButton = flatButton.render("Log in", false, "login");
+  const $signupButton = flatButton.render("Sign up", true, "signup");
 
   // const $avatarWrapper = createAvatarWrapper();
   const $titleGame = titleGame.render("Welcome!");
