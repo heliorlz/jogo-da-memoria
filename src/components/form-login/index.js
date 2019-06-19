@@ -24,16 +24,21 @@ const formLogin = (function() {
 
     const $labelFormPassword = labelForm.render("Password");
     const $inputFormPassword = inputForm.render({
+      id: "password",
       type: "password",
-      placeholder: "******"
+      placeholder: "8 digits"
     });
+    const $eyeCollabCode = eyeCollabCode.render({ attrFor: "password" });
 
     const $linkCollab = linkCollab.render({
       href: "#",
       content: "Forget password?"
     });
 
-    const $submitButton = submitButton.render("Login");
+    const $submitButton = submitButton.render({
+      content: "Login",
+      path: "game"
+    });
 
     return `
       ${$labelFormUser}
@@ -41,6 +46,7 @@ const formLogin = (function() {
   
       ${$labelFormPassword}
       ${$inputFormPassword}
+      ${$eyeCollabCode}
   
       ${$linkCollab}
 

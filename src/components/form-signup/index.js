@@ -40,7 +40,10 @@ const formSignup = (function() {
       placeholder: "******"
     });
 
-    const $submitButton = submitButton.render("Submit");
+    const $submitButton = submitButton.render({
+      content: "Submit",
+      path: "login"
+    });
 
     return `
     ${$labelFormUser}

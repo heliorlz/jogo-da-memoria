@@ -7,7 +7,7 @@ const submitButton = (function() {
 
     $style.textContent = `
       .submit-button {
-        padding: 15px 120px;
+        height: 50px;
         background-color: #f25a70;
         color: #fff;
         font-size: 14px;
@@ -15,19 +15,27 @@ const submitButton = (function() {
         text-transform: uppercase;
         margin-top: 30px;
         border-radius: 24px;
-        cursor: pointer;
+        cursor: pointer;;
       }
     `;
     $head.insertBefore($style, null);
   };
 
-  module.render = content => {
+  module.handleClick = (event, path) => {
+    event.preventDefault();
+
+    window.location.hash = `#/${path}`;
+    window.location.reload(true);
+  };
+
+  module.render = ({ content = "", path = "" }) => {
     module._style();
 
-    return `<button class="submit-button">${content}</button>`;
+    return `<button onclick="submitButton.handleClick(event,'${path}')" class="submit-button">${content}</button>`;
   };
 
   return {
-    render: module.render
+    render: module.render,
+    handleClick: module.handleClick
   };
 })();
