@@ -28,8 +28,8 @@ const flatButton = (function() {
   };
 
   module.handleClick = path => {
-    console.log(path);
     window.location.hash = `#/${path}`;
+    window.location.reload(true);
   };
 
   module.render = (content = "", active = false, path = "") => {

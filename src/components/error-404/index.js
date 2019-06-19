@@ -13,10 +13,6 @@ const error404 = (function() {
         align-items: center;
         text-align: center;
       } 
-
-      h1 {
-        font-size: 50px;
-      }
     `;
 
     $head.insertBefore($style, null);

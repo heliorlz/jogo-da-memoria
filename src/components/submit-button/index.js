@@ -23,8 +23,9 @@ const submitButton = (function() {
 
   module.handleClick = (event, path) => {
     event.preventDefault();
-    console.log(path);
+
     window.location.hash = `#/${path}`;
+    window.location.reload(true);
   };
 
   module.render = ({ content = "", path = "" }) => {
