@@ -28,7 +28,7 @@ const startButton = (function() {
         }
 
         .start-button.-disable {
-          transform: translateX(-50%) scale(2.5);
+          transform: translate(-50%, -35%) scale(2);
           opacity: 0;
         }
       `;

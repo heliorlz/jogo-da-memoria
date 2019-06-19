@@ -2,15 +2,12 @@ const layerStart = (function() {
   const module = {};
 
   module.handleClick = $component => {
-    const $startButton = $component.querySelector(".start-button");
-    const $transparencyLayer = $component.querySelector(".transparency-layer");
+    const $children = $component.querySelectorAll("*");
 
-    $startButton.classList.add("-disable");
-    $transparencyLayer.classList.add("-disable");
+    $children.forEach($item => $item.classList.add("-disable"));
   };
-
-  module.handleTransitionEnd = $component => {
-    if ($component.classList.contains("transparency-layer")) {
+  module.handleTransitionEnd = (event, $component) => {
+    if (event.target.classList.contains("transparency-layer")) {
       $component.remove();
     }
   };
@@ -20,7 +17,7 @@ const layerStart = (function() {
     const $startButton = startButton.render(content);
 
     return `
-        <div class="layer-start" onClick="layerStart.handleClick(this)" onTransitionEnd="layerStart.handleTransitionEnd(this)">
+        <div class="layer-start" onClick="layerStart.handleClick(this)" onTransitionEnd="layerStart.handleTransitionEnd(event, this)">
             ${$transparencyLayer}
             ${$startButton}
         </div>
