@@ -1,4 +1,4 @@
-const error404 = (function() {
+const status404 = (function() {
   const module = {};
 
   module._style = () => {
