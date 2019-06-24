@@ -9,14 +9,18 @@ const pointBar = (function() {
         .point-bar {
             background-color: #3a4042;
             height: 40px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-family: 'Comfortaa', sans-serif;
+            padding: 0 20px;
         }
         
         .point-bar > .number {
             color: #fff;
             line-height: 40px;
             font-weight: bold;
+            margin-right: calc(50% - 4.5px);
         }
         `;
 
@@ -29,12 +33,13 @@ const pointBar = (function() {
     $showScore.textContent = store.score;
   };
 
-  module.create = () => {
+  module.create = $component => {
     module._style();
 
     return `
         <header class="point-bar">
-            <span class="number">0</span>
+          ${$component}  
+          <span class="number">0</span>
         </header>
       `;
   };

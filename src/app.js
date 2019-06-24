@@ -7,6 +7,7 @@
   paths["#/signup"] = signup;
   paths["#/game"] = game;
   paths["#/404"] = page404;
+  paths["#/login"] = login;
 
   paths[hash] ? paths[hash]() : paths["#/404"]();
 })();

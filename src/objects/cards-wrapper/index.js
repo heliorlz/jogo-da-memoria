@@ -18,7 +18,8 @@ function createCardsWrapper() {
     margin-bottom: 10px;
   }
   `;
-  $head.insertBefore($style, null);
+
+  $head.insertAdjacentElement("afterbegin", $style);
 
   $cardsWrapper.addEventListener("click", () => {
     store.qttActiveMemoryCard = $cardsWrapper.querySelectorAll(
