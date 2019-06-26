@@ -23,8 +23,6 @@ const errorUser = (function() {
 
   module.render = content => {
     module._style();
-    const $user = document.querySelector("#user");
-    console.log($user);
 
     return `<p class="error-user">${content}</p>`;
   };
