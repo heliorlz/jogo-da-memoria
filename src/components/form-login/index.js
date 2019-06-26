@@ -10,7 +10,6 @@ const formLogin = (function() {
             display: flex;
             flex-direction: column;
             padding: 0 35px;
-            margin-top: 50px;
             transform: translateY(-20%);
         }
       `;
@@ -19,10 +18,19 @@ const formLogin = (function() {
 
   module._children = () => {
     // rendering form login
-    const $labelFormUser = labelForm.render("Username or e-mail");
-    const $inputFormUser = inputForm.render({});
+    const $labelFormUser = labelForm.render({
+      content: "Username or e-mail",
+      forLabel: "user"
+    });
+    const $inputFormUser = inputForm.render({
+      id: "user"
+    });
+    const $errorUser = errorUser.render("User is required");
 
-    const $labelFormPassword = labelForm.render("Password");
+    const $labelFormPassword = labelForm.render({
+      content: "Password",
+      forLabel: "password"
+    });
     const $inputFormPassword = inputForm.render({
       id: "password",
       type: "password",
@@ -43,9 +51,11 @@ const formLogin = (function() {
     return `
       ${$labelFormUser}
       ${$inputFormUser}
+      ${$errorUser}
   
       ${$labelFormPassword}
       ${$inputFormPassword}
+      
       ${$eyeCollabCode}
   
       ${$linkCollab}
@@ -57,7 +67,7 @@ const formLogin = (function() {
   module.render = (...$children) => {
     module._style();
 
-    return `<form class="form-login" action="" method="POST ">${module._children()}</form>`;
+    return `<form class="form-login" action="" method="POST">${module._children()}</form>`;
   };
 
   return {

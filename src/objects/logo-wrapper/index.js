@@ -16,6 +16,7 @@ const logoWrapper = (function() {
         flex-direction: column;
         align-items: center;
         padding-top: 40px;
+        margin-bottom: 50px;
     }
   `;
 
@@ -24,7 +25,6 @@ const logoWrapper = (function() {
 
   // spread operator
   module.render = (...$children) => {
-
     module._style();
 
     return `<div class="logo-wrapper">${$children.join("")}</div>`;
@@ -32,5 +32,5 @@ const logoWrapper = (function() {
 
   return {
     render: module.render
-  }
+  };
 })();

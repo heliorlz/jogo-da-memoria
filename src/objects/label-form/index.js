@@ -9,16 +9,17 @@ const labelForm = (function() {
       .label-form {
           color: #3a4042;
           opacity: 0.5;
+          margin-bottom: 10px;
       }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.render = content => {
+  module.render = ({ content, forLabel = "" }) => {
     module._style();
 
-    return `<label class="label-form">${content}</label>`;
+    return `<label for="${forLabel}" class="label-form">${content}</label>`;
   };
 
   return {

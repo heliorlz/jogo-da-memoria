@@ -10,7 +10,7 @@ const inputForm = (function() {
         background-color: transparent;
         border-bottom: 2px solid rgba(23, 25, 26, 0.2);
         padding: 12px 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         font-size: 18px;
         font-weight: bold;
         color: #3a4042;
@@ -23,7 +23,7 @@ const inputForm = (function() {
   module.render = ({ id = "", type = "text", placeholder = "" }) => {
     module._style();
 
-    return `<input id="${id}" class="input-form" type="${type}" placeholder="${placeholder}">`;
+    return `<input id="${id}" class="input-form" type="${type}" placeholder="${placeholder}" required="required" />`;
   };
 
   return {
