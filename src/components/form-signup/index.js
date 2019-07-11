@@ -19,22 +19,24 @@ const formSignup = (function() {
 
   module._children = () => {
     // rendering form signup
-    const $labelFormUser = labelForm.render("Username");
+    const $labelFormUser = labelForm.render({ content: "Username" });
     const $inputFormUser = inputForm.render({ placeholder: "username" });
 
-    const $labelFormEmail = labelForm.render("E-mail");
+    const $labelFormEmail = labelForm.render({ content: "E-mail" });
     const $inputFormEmail = inputForm.render({
       type: "email",
       placeholder: "example@teste.com"
     });
 
-    const $labelFormPassword = labelForm.render("Password");
+    const $labelFormPassword = labelForm.render({ content: "Password" });
     const $inputFormPassword = inputForm.render({
       type: "password",
       placeholder: "******"
     });
 
-    const $labelFormRepassword = labelForm.render("Confirm password");
+    const $labelFormRepassword = labelForm.render({
+      content: "Confirm password"
+    });
     const $inputFormRepassword = inputForm.render({
       type: "password",
       placeholder: "******"
@@ -48,16 +50,12 @@ const formSignup = (function() {
     return `
     ${$labelFormUser}
     ${$inputFormUser}
-
     ${$labelFormEmail}
     ${$inputFormEmail}
-
     ${$labelFormPassword}
     ${$inputFormPassword}
-
     ${$labelFormRepassword}
     ${$inputFormRepassword}
-
     ${$submitButton}
   `;
   };

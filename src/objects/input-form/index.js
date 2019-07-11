@@ -23,11 +23,10 @@ const inputForm = (function() {
   module.render = ({ id = "", type = "text", placeholder = "" }) => {
     module._style();
 
-    return `<input id="${id}" class="input-form" type="${type}" placeholder="${placeholder}" onsubmit="return inputForm.validate()" />`;
+    return `<input id="${id}" class="input-form" type="${type}" placeholder="${placeholder}" required />`;
   };
 
   return {
-    render: module.render,
-    validate: module.validate
+    render: module.render
   };
 })();

@@ -37,6 +37,9 @@ const formLogin = (function() {
       placeholder: "8 digits"
     });
     const $eyeCollabCode = eyeCollabCode.render({ attrFor: "password" });
+    const $errorPassword = errorPassword.render(
+      "Password must be at least 8 characters"
+    );
 
     const $linkCollab = linkCollab.render({
       href: "#",
@@ -55,11 +58,11 @@ const formLogin = (function() {
   
       ${$labelFormPassword}
       ${$inputFormPassword}
+      ${$errorPassword}
       
       ${$eyeCollabCode}
   
       ${$linkCollab}
-
       ${$submitButton}
     `;
   };
@@ -67,7 +70,7 @@ const formLogin = (function() {
   module.render = (...$children) => {
     module._style();
 
-    return `<form class="form-login" action="" method="POST">${module._children()}</form>`;
+    return `<form class="form-login" action="" method="POST" novalidate>${module._children()}</form>`;
   };
 
   return {

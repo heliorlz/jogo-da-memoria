@@ -1,4 +1,4 @@
-const errorUser = (function() {
+const errorPassword = (function() {
   const module = {};
 
   module._style = () => {
@@ -6,13 +6,13 @@ const errorUser = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .error-user {
+      .error-password {
         margin-top: -18px;
         margin-bottom: 20px;
         color: #fb9d7d;
         display: none;
       }
-      .error-user.-active {
+      .error-password.-active {
         display: block;
       }
     `;
@@ -23,7 +23,7 @@ const errorUser = (function() {
   module.render = content => {
     module._style();
 
-    return `<p class="error-user">${content}</p>`;
+    return `<p class="error-password">${content}</p>`;
   };
 
   return {
